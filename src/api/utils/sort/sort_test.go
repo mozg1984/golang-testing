@@ -41,3 +41,16 @@ func TestBubbleSortDecreasingOrder(t *testing.T) {
 		t.Error("first element should be 0")
 	}
 }
+
+func TestSortIncreasingOrder(t *testing.T) {
+	elements := []int{8, 2, 5, 1, 0}
+
+	Sort(elements)
+
+	if elements[0] != 0 {
+		t.Error("first element should be 0")
+	}
+	if elements[4] != 8 {
+		t.Error("first element should be 8")
+	}
+}

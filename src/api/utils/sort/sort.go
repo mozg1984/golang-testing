@@ -1,5 +1,9 @@
 package sort
 
+import (
+	"sort"
+)
+
 type Ordering func(a, b int) bool
 
 func Ascending(a, b int) bool {
@@ -22,4 +26,8 @@ func BubbleSort(elements []int, ordering Ordering) {
 			}
 		}
 	}
+}
+
+func Sort(elements []int) {
+	sort.Ints(elements)
 }
