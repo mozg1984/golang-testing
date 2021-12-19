@@ -54,3 +54,19 @@ func TestSortIncreasingOrder(t *testing.T) {
 		t.Error("first element should be 8")
 	}
 }
+
+func BenchmarkBubbleSortIncreasingOrder(b *testing.B) {
+	elements := []int{8, 2, 5, 1, 0}
+
+	for i := 0; i < b.N; i++ {
+		BubbleSort(elements, Ascending)
+	}
+}
+
+func BenchmarkSortIncreasingOrder(b *testing.B) {
+	elements := []int{8, 2, 5, 1, 0}
+
+	for i := 0; i < b.N; i++ {
+		Sort(elements)
+	}
+}
