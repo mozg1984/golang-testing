@@ -2,6 +2,8 @@ package sort
 
 import (
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 // Code coverage is not a good metric
@@ -14,32 +16,28 @@ func TestBubbleSortIncreasingOrder(t *testing.T) {
 	// Init
 	elements := []int{8, 2, 5, 1, 0}
 
+	assert.NotNil(t, elements)
+
 	// Execution
 	BubbleSort(elements, Ascending)
 
 	// Validation
-	if elements[0] != 0 {
-		t.Error("first element should be 0")
-	}
-	if elements[4] != 8 {
-		t.Error("first element should be 8")
-	}
+	assert.EqualValues(t, 0, elements[0], "first element should be 0")
+	assert.EqualValues(t, 8, elements[len(elements)-1], "last element should be 8")
 }
 
 func TestBubbleSortDecreasingOrder(t *testing.T) {
 	// Init
 	elements := []int{8, 2, 5, 1, 0}
 
+	assert.NotNil(t, elements)
+
 	// Execution
 	BubbleSort(elements, Descending)
 
 	// Validation
-	if elements[0] != 8 {
-		t.Error("first element should be 8")
-	}
-	if elements[4] != 0 {
-		t.Error("first element should be 0")
-	}
+	assert.EqualValues(t, 8, elements[0], "first element should be 8")
+	assert.EqualValues(t, 0, elements[len(elements)-1], "last element should be 0")
 }
 
 func TestSortIncreasingOrder(t *testing.T) {
@@ -47,12 +45,8 @@ func TestSortIncreasingOrder(t *testing.T) {
 
 	Sort(elements)
 
-	if elements[0] != 0 {
-		t.Error("first element should be 0")
-	}
-	if elements[4] != 8 {
-		t.Error("first element should be 8")
-	}
+	assert.EqualValues(t, 0, elements[0], "first element should be 0")
+	assert.EqualValues(t, 8, elements[len(elements)-1], "last element should be 8")
 }
 
 func BenchmarkBubbleSortIncreasingOrder(b *testing.B) {
