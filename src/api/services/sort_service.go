@@ -1,6 +1,6 @@
 package services
 
-import "golang-testing/src/api/utils/sort"
+import "github.com/mozg1984/golang-testing/src/api/utils/sort"
 
 const (
 	BUBBLE_SORTING_LIMIT = 20000
